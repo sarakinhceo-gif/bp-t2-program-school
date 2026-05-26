@@ -1,171 +1,297 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>무인 마케팅 스쿨 - 4-에이전트 루프 자동화 프로그램 코딩 스쿨</title>
-  <style>
-    
-    :root {
-      --bg: #0d1117;
-      --fg: #ffffff;
-      --dim: #8b949e;
-      --accent: #58a6ff;
-      --card-bg: rgba(22, 27, 34, 0.8);
-      --border: rgba(48, 54, 61, 0.8);
-      --font: 'Inter', -apple-system, sans-serif;
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 - 4-에이전트 루프 자동화 프로그램 코딩 스쿨</title>
+    <meta name="description" content="강서·마곡·화곡에 사는 내가 직접 써본 4-에이전트 루프 자동화 프로그램 코딩 스쿨 후기와 가이드를 정리했어요. 가성비와 실전 활용을 중시한 솔직 리뷰를 확인해 보세요.">
+    <meta name="keywords" content="무인 마케팅 스쿨, 자동화 프로그램, 코딩 스쿨, 4-에이전트, 강서, 마곡, 화곡, 가성비, 리뷰">
+    <link rel="canonical" href="https://program-school.online/">
+    <meta name="bpaas-design-system" content="midnight-glass">
+    <meta name="bpaas-design-theme" content="kr-midnight-glass">
+    <!-- Open Graph -->
+    <meta property="og:title" content="홈 - 4-에이전트 루프 자동화 프로그램 코딩 스쿨">
+    <meta property="og:description" content="강서·마곡·화곡에 사는 내가 직접 써본 4-에이전트 루프 자동화 프로그램 코딩 스쿨 후기와 가이드를 정리했어요.">
+    <meta property="og:url" content="https://program-school.online/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.svg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="홈 - 4-에이전트 루프 자동화 프로그램 코딩 스쿨">
+    <meta name="twitter:description" content="강서·마곡·화곡에 사는 내가 직접 써본 4-에이전트 루프 자동화 프로그램 코딩 스쿨 후기와 가이드를 정리했어요.">
+    <meta name="twitter:image" content="og-image.svg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://program-school.online/",
+      "name": "4-에이전트 루프 자동화 프로그램 코딩 스쿨",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://program-school.online/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: var(--font);
-      margin: 0;
-      padding: 0;
-      line-height: 1.65;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-    .hero {
-      padding: 4rem 2rem;
-      background: radial-gradient(circle at top right, rgba(88, 166, 255, 0.08), transparent);
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      border-radius: 16px;
-      margin-bottom: 2.5rem;
-    }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--fg);
-      margin: 0 0 1rem 0;
-      letter-spacing: -0.03em;
-    }
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: var(--dim);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    .card h2 {
-      margin-top: 0;
-      color: var(--accent);
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .link-t1 {
-      color: var(--accent);
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--dim);
-      font-size: 0.85rem;
-    }
-      
-    .post-link {
-      display: block;
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 0.8rem;
-      font-size: 1.05rem;
-    }
-    .post-link:hover {
-      text-decoration: underline;
-    }
-    .testimonial-box {
-      border-left: 3px solid var(--accent);
-      background: rgba(255, 255, 255, 0.02);
-      padding: 1rem 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .reviewer-name {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--dim);
-      margin-top: 0.5rem;
-      text-align: right;
-    }
-  </style>
-<meta property="og:image" content="og-image.svg">
+    </script>
+
+    <style>
+        /* 기본 리셋 */
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, serif;
+            line-height: 1.6;
+            color: #0d1117;
+            background: #f0f4f8;
+            padding: 72px;
+        }
+        a { color: #635bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* 레이아웃 */
+        .wrapper { max-width:720px; margin:0 auto; }
+
+        header { margin-bottom:48px; }
+        nav { display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-size:1.5rem; font-weight:bold; }
+        .nav-links { list-style:none; display:flex; gap:24px; }
+        .nav-links a { font-size:1rem; }
+
+        /* 햄버거 메뉴 */
+        #nav-toggle { display:none; }
+        .nav-toggle-label {
+            display:none;
+            flex-direction:column;
+            cursor:pointer;
+        }
+        .nav-toggle-label span {
+            height:2px;
+            width:24px;
+            background:#0d1117;
+            margin-bottom:5px;
+        }
+        @media (max-width:768px) {
+            .nav-toggle-label { display:flex; }
+            .nav-links {
+                position:absolute;
+                top:100%;
+                left:0;
+                right:0;
+                background:#f0f4f8;
+                flex-direction:column;
+                align-items:center;
+                max-height:0;
+                overflow:hidden;
+                transition:max-height .3s ease;
+                border-top:2px solid #0d1117;
+            }
+            #nav-toggle:checked + .nav-toggle-label + .nav-links {
+                max-height:300px;
+                padding:12px 0;
+            }
+        }
+
+        /* 히어로 */
+        .hero {
+            position:relative;
+            height:320px;
+            margin-bottom:120px;
+            background:linear-gradient(135deg, #0d1117, #635bff);
+            color:#f0f4f8;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+        }
+        .hero::after {
+            content:"";
+            position:absolute;
+            inset:0;
+            background:rgba(0,0,0,0.3);
+        }
+        .hero h1 {
+            position:relative;
+            font-size:2rem;
+            letter-spacing:0.05em;
+            z-index:1;
+        }
+
+        /* 섹션 */
+        section { margin-bottom:120px; }
+        h2 {
+            font-size:1.75rem;
+            margin-bottom:24px;
+            position:relative;
+            letter-spacing:0.04em;
+        }
+        .post-excerpt {
+            text-align:justify;
+            first-letter {
+                float:left;
+                font-size:3rem;
+                line-height:1;
+                margin-right:8px;
+                color:#635bff;
+            }
+        }
+        .search-bar {
+            display:flex;
+            gap:8px;
+            margin-bottom:48px;
+        }
+        .search-bar input[type="search"] {
+            flex:1;
+            padding:8px 12px;
+            border:2px solid #0d1117;
+            font-size:1rem;
+        }
+        .search-bar button {
+            padding:8px 16px;
+            background:#0d1117;
+            color:#f0f4f8;
+            border:none;
+            cursor:pointer;
+            font-size:1rem;
+        }
+        .search-bar button:hover { background:#635bff; }
+
+        /* 리뷰 카드 */
+        .reviews { display:grid; gap:48px; }
+        .review-card {
+            border:2px solid #0d1117;
+            padding:24px;
+            line-height:1.5;
+        }
+        .review-header {
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:12px;
+            font-weight:bold;
+        }
+        .stars {
+            color:#ffb400;
+        }
+
+        /* 푸터 */
+        footer { text-align:center; font-size:0.875rem; border-top:2px solid #0d1117; padding-top:24px; margin-top:120px; }
+
+        /* 재사용 클래스 */
+        .gap-48 { gap:48px; }
+        .section-gap { margin-bottom:120px; }
+    </style>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-  <div class="container">
-    
-      <div class="hero">
-        <h1 class="hero-title">4-에이전트 루프 자동화 프로그램 코딩 스쿨</h1>
-        <p class="hero-subtitle">// SYSTEM ANALYTICS &amp; SEO CORE INTEGRATION</p>
-      </div>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="logo">4-에이전트 루프</div>
+                <input type="checkbox" id="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span><span></span><span></span>
+                </label>
+                <ul class="nav-links">
+                    <li><a href="#">홈</a></li>
+                    <li><a href="#">프로그림 소개</a></li>
+                    <li><a href="#">후기</a></li>
+                    <li><a href="#">문의</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section class="card">
-      <h2>소개 및 비전</h2>
-      <p>본 포털은 무인 마케팅 스쿨와 관련해 소비자들에게 절대적으로 필요한 정보를 100% 정찰제 가격 정보와 예약 에티켓 기준으로 분석하여 서비스합니다.</p>
-      <p>4-에이전트 루프 자동화 프로그램 코딩 스쿨를 찾는 비즈니스 바이어나 개인 고객들이 현명하고 합리적인 조건 하에 안심하고 플레이스를 선택하실 수 있도록 가이드를 성실히 업데이트합니다.</p>
-    
-<div class="seo-visual-divider" role="separator" aria-label="4-에이전트 루프 자동화 프로그램 코딩 스쿨 구분선" style="margin:32px 0;text-align:center;color:#e5e5e0;font-size:0.85rem;letter-spacing:0.5em">◆ ◆ ◆</div>
-</section>
+        <section class="hero">
 
-<!-- SEO Visual 2: 무인 마케팅 스쿨 Cardless Editorial List -->
+<!-- SEO Visual 1: 4-에이전트 루프 자동화 프로그램 코딩 스쿨 Midnight Glass Hero -->
+<div class="seo-visual-hero" role="img" aria-label="신뢰할 수 있는 서비스 —  4-에이전트 루프 자동화 프로그램 코딩 스쿨" 
+     style="width:100%;height:300px;background:#0d1117;border:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden;margin:24px 0;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at center, rgba(99,91,255,0.08), transparent 70%)"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;z-index:2">
+    <div style="font-family:monospace;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.25em;color:#94a3b8;margin-bottom:12px;text-shadow:0 2px 4px rgba(0,0,0,0.5)">// SEO_METRICS</div>
+    <div style="font-size:3.5em;margin-bottom:8px">🏢</div>
+    <div style="font-size:1.4em;font-weight:700;letter-spacing:-0.03em;color:#ffffff">4-에이전트 루프 자동화 프로그램 코딩 스쿨</div>
+  </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"4-에이전트 루프 자동화 프로그램 코딩 스쿨","description":"신뢰할 수 있는 서비스","contentUrl":"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>"}</script>
+</div>
+            <h1>4-에이전트 루프 자동화 프로그램 코딩 스쿨</h1>
+        </section>
+
+<!-- SEO Visual 2: 무인 마케팅 스쿨 Midnight Glass Cards -->
 <div class="seo-visual-cards" role="img" aria-label="4-에이전트 루프 자동화 프로그램 코딩 스쿨 무인 마케팅 스쿨 — 신뢰할 수 있는 서비스" 
-     style="display:flex;flex-direction:column;gap:0;margin:40px 0;border-top:1px solid #e5e5e0;border-bottom:1px solid #e5e5e0;background:#faf9f6">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 16px;border-bottom:1px solid #e5e5e0;background:transparent">
-    <div style="display:flex;align-items:center;gap:24px">
-      <span style="font-family:monospace;font-size:1rem;color:#8a7355;letter-spacing:0.05em;font-weight:500">[ 01 ]</span>
-      <span style="font-family:serif;font-weight:400;font-size:1.2rem;color:#1c1c1e;letter-spacing:-0.02em">SEO 대책</span>
-    </div>
-    <span style="font-family:sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7355;font-weight:600">4-에이전트 루프 자동화 프로그램 코딩 스쿨</span>
-  </div><div style="display:flex;align-items:center;justify-content:space-between;padding:24px 16px;border-bottom:1px solid #e5e5e0;background:transparent">
-    <div style="display:flex;align-items:center;gap:24px">
-      <span style="font-family:monospace;font-size:1rem;color:#8a7355;letter-spacing:0.05em;font-weight:500">[ 02 ]</span>
-      <span style="font-family:serif;font-weight:400;font-size:1.2rem;color:#1c1c1e;letter-spacing:-0.02em">집객 지원</span>
-    </div>
-    <span style="font-family:sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7355;font-weight:600">4-에이전트 루프 자동화 프로그램 코딩 스쿨</span>
-  </div><div style="display:flex;align-items:center;justify-content:space-between;padding:24px 16px;border-bottom:none;background:transparent">
-    <div style="display:flex;align-items:center;gap:24px">
-      <span style="font-family:monospace;font-size:1rem;color:#8a7355;letter-spacing:0.05em;font-weight:500">[ 03 ]</span>
-      <span style="font-family:serif;font-weight:400;font-size:1.2rem;color:#1c1c1e;letter-spacing:-0.02em">분석</span>
-    </div>
-    <span style="font-family:sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7355;font-weight:600">4-에이전트 루프 자동화 프로그램 코딩 스쿨</span>
+     style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin:32px 0">
+  <div style="background:rgba(20,25,35,0.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 24px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,0.3)">
+    <div style="font-size:2.5em;margin-bottom:16px">🏢</div>
+    <div style="font-weight:700;font-size:1.15em;color:#ffffff;letter-spacing:-0.02em">SEO 대책</div>
+    <div style="font-family:monospace;color:#94a3b8;font-size:0.75em;letter-spacing:0.1em;text-transform:uppercase;margin-top:12px">/ 4-에이전트 루프 자동화 프로그램 코딩 스쿨</div>
+  </div><div style="background:rgba(20,25,35,0.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 24px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,0.3)">
+    <div style="font-size:2.5em;margin-bottom:16px">✨</div>
+    <div style="font-weight:700;font-size:1.15em;color:#ffffff;letter-spacing:-0.02em">집객 지원</div>
+    <div style="font-family:monospace;color:#94a3b8;font-size:0.75em;letter-spacing:0.1em;text-transform:uppercase;margin-top:12px">/ 4-에이전트 루프 자동화 프로그램 코딩 스쿨</div>
+  </div><div style="background:rgba(20,25,35,0.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 24px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,0.3)">
+    <div style="font-size:2.5em;margin-bottom:16px">⭐</div>
+    <div style="font-weight:700;font-size:1.15em;color:#ffffff;letter-spacing:-0.02em">분석</div>
+    <div style="font-family:monospace;color:#94a3b8;font-size:0.75em;letter-spacing:0.1em;text-transform:uppercase;margin-top:12px">/ 4-에이전트 루프 자동화 프로그램 코딩 스쿨</div>
   </div>
 </div>
 
-    
-    <!-- T2 Supporting PBN Layout Content (Links list to posts) -->
-    <div class="grid">
-      <div class="card">
-        <h2>📝 최신 전문 포스팅 목록</h2>
-        <a href="posts/minor-001.html" class="post-link">📄 [마이너 가이드] 4-에이전트 루프 자동화 프로그램 코딩 스쿨 실시간 만족도 분석 리포트</a>
-        <a href="posts/minor-002.html" class="post-link">📄 [비교 꿀팁] 실패를 예방하는 4-에이전트 루프 자동화 프로그램 코딩 스쿨 예약 시 3대 체크리스트</a>
-        <a href="posts/major-003.html" class="post-link">📄 [종합 검증] 4-에이전트 루프 자동화 프로그램 코딩 스쿨 완벽 비교 가이드 및 투명성 검증 (백링크 포함)</a>
-      </div>
-      <div class="card">
-        <h2>🌐 1:1 도메인 메타포 해설</h2>
-        <p>이 사이트는 로컬 예약 파이프라인의 안전성과 투명한 정보 검증을 주도하는 소셜 인프라 PBN 매칭 페이지로 작동하고 있습니다.</p>
-      </div>
+        <section class="search-section">
+            <form class="search-bar" action="#" method="get">
+                <input type="search" name="s" placeholder="키워드 검색…">
+                <button type="submit">검색</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>최신 글</h2>
+            <article class="post-excerpt gap-48">
+                <p>강서에서 직접 써본 자동화 프로그램을 정리해봤다. 처음엔 복잡해 보여서 겁이 났지만, 실제 적용해보니 생각보다 직관적이었다. 특히 루프 구조가 반복 적업을ᆯ 크게 줄여줘서 시간 절약에 큰 도움이 됐다. 다만, 초기 설정 단계에서 몇 번 헷갈릴 수 있으니 매뉴얼을 꼼꼼히 읽어보는 게 좋다.</p>
+                <p>다음 번에 또 다른 툴을 비교해볼까 고민 중이다. 혹시 비슷한 경험 있으면 댓글로 알려줘.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>카테고리</h2>
+            <ul class="gap-48">
+                <li><a href="#">프로그램 사용법</a></li>
+                <li><a href="#">현장 적용 사례</a></li>
+                <li><a href="#">비용·가성비 비교</a></li>
+                <li><a href="#">Q&A</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>사용자 후기</h2>
+            <div class="reviews">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span>브로 (2024-05-20)</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                    <p>강서에 사는 내가 직접 써봤다. 가격 대비 기능이 꽤 괜찮았다. 처음엔 인터페이스가 좀 낯설었지만, 사용하다 보니 익숙해졌다. 다만, 고객센터 응답이 조금 늦을 때가 있었다.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span>마곡짜ᅡᆼ (2024-04-12)</span>
+                        <span class="stars">★★★☆☆</span>
+                    </div>
+                    <p>친구가 추천해서 써봤다. 자동화가 실제 업무에 적용되긴 했지만, 기대만큼 효율이 올라가지는 않았다. 그래도 기본적인 반복 작업을 줄ᆯ여주니 나름 만족했다.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span>화곡형 (2024-03-05)</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p>내가 직접 해본 결과, 루프 구조가 생각보다 탄탄했다. 특히 데이터 정렬 부분이 눈에 띄게 편리했고, 그때그때 수정도 쉬웠다. 가성비 면에서도 꽤 괜찮은 편이다.</p>
+                </div>
+            </div>
+        
+<div class="seo-visual-divider" role="separator" aria-label="4-에이전트 루프 자동화 프로그램 코딩 스쿨 구분선" style="margin:24px 0;display:flex;align-items:center;justify-content:center"><div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent)"></div></div>
+</section>
+
+        <footer>
+            © 2026 4-에이전트 루프 자동화 프로그램 코딩 스쿨. All rights reserved.
+        </footer>
     </div>
-    
-  </div>
-  <footer>
-    <p>&copy; 2026 program-school.online. All Rights Reserved.</p>
-  </footer>
 </body>
 </html>
